@@ -13,7 +13,7 @@ function computerPlay(){
     }
 }
 
-function rockPaperScissors(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
