@@ -13,40 +13,77 @@ function computerPlay(){
     }
 }
 
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for(let i = 1; i < 6; i++){
+        console.log(`Round ${i} of 5`);
+        let choice = prompt("Rock, Paper, or Scissors: ");
+        let computerChoice = computerPlay();
+        
+        let result = playRound(choice, computerChoice);
+
+        if (result === 0){
+            console.log(`Draw! Both players chose ${computerChoice}`);
+        }
+        else if (result === -1){
+            console.log(`You lose! ${computerChoice} beats ${choice}`);
+            computerScore++;
+        }
+        else if (result === 1){
+            console.log(`You win! ${choice} beats ${computerChoice}`);
+            playerScore++;
+        }
+
+    }
+
+    console.log(`Final Score - Player: ${playerScore} - Computer: ${computerScore}`);
+
+
+}
+
 function playRound(playerSelection, computerSelection){
+
+    //In relation to playerSelection
+    //returns -1 for loss, 0 for draw, 1 for win
+
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection){
-        return "Draw! Both players chose " + computerSelection;
+        return 0;
     }
 
     if (playerSelection === "rock"){
         if (computerSelection === "paper"){
-            return "You lose! Paper beats rock!";
+            return -1;
         }
         else if (computerSelection === "scissors"){
-            return "You win! Rock beats scissors!";
+            return 1;
         }
     }
 
     if (playerSelection === "paper"){
         if (computerSelection === "rock"){
-            return "You win! Paper beats rock!";
+            return 1;
         }
         else if (computerSelection === "scissors"){
-            return "You lose! Scissors beats paper!";
+            return -1;
         }
     }
 
     if (playerSelection === "scissors"){
         if (computerSelection === "paper"){
-            return "You win! Scissors beats paper!";
+            return 1;
         }
         else if (computerSelection === "rock"){
-            return "You lose! Rock beats scissors!";
+            return -1;
         }
     }
+
+    //function should never get here
+    return 0;
 
 
 }
