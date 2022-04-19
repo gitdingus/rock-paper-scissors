@@ -3,10 +3,34 @@
     <head>
         <title>Rock, Paper, Scissors</title>
         <meta charset="UTF-8">
+        <script src="script.js" defer></script>
     </head>
 
     <body>
 
-    <script src="script.js"></script>
+        <div id="arena">
+            <div id="scoreboard">
+                <div class='player-score'>
+                    <p>Player 1</p>
+                    <p id='player1-score'></p>
+                </div>
+                <div class='player-score'>
+                    <p>Computer</p>
+                    <p id='computer-score'></p>
+                </div>
+            </div>
+            <div id="battleground">
+                <span id="player1-play"></span>
+                <span id="vs">VS</span>
+                <span id="computer-play"></span>
+            </div>
+
+            <div id="player-selection">
+                <button class='rock'>Rock</button>
+                <button class='paper'>Paper</button>
+                <button class='scissors'>Scissors</button>
+            </div>
+            
+        </div>
     </body>
 </html>
