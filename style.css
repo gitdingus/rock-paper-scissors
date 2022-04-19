@@ -1,8 +1,12 @@
 body {
+    background-color: grey;
     display:flex;
     justify-content: center;
 }
 #arena {
+    background-color: lightgrey;
+    padding: 25px;
+    border-radius: 20px;
     width: 50%;
 }
 #scoreboard {
@@ -22,12 +26,14 @@ body {
 
 #battleground .play{
     display:flex; 
+    background-color: rgb(228, 205, 205);
     flex: 0 0 auto;
     height: 150px;
     width: 150px;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
+    border-radius: 15px;
     font-size: 24px;
     font-weight: bold;
 }
@@ -39,7 +45,10 @@ body {
 }
 
 #player-selection button {
+    background-color: rgb(172, 170, 170);
     width: 125px;
     height: 80px;
+    border-radius: 15px;
+    font-size: 16px;
 
 }
