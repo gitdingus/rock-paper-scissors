@@ -8,6 +8,7 @@ body {
 #scoreboard {
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
 
 #battleground{
