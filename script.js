@@ -1,16 +1,17 @@
 const playerScoreP = document.querySelector('#player1-score');
 const computerScoreP = document.querySelector('#computer-score');
-const playerChoiceDiv = document.querySelector('#battleground.player1');
-const computerChoiceDiv = document.querySelector('#battleground.computer');
+const playerChoiceDiv = document.querySelector('#battleground .player1');
+const computerChoiceDiv = document.querySelector('#battleground .computer');
 const rockButton = document.querySelector('button.rock');
 const paperButton = document.querySelector('button.paper');
 const scissorsButton = document.querySelector('button.scissors');
 
+rockButton.addEventListener('click', () => play("rock"));
+paperButton.addEventListener('click', () => play("paper"));
+scissorsButton.addEventListener('click', () => play("scissors"));
+
 let playerScore = 0;
 let computerScore = 0;
-
-playerScoreP.textContent = playerScore;
-computerScoreP.textContent = computerScore;
 
 function computerPlay(){
     let rand = Math.floor(Math.random() * 3);
@@ -25,6 +26,44 @@ function computerPlay(){
         default:
             console.log("Error in computerPlay()");
     }
+}
+
+function play(playerChoice){
+    let computer = computerPlay();
+    let result = playRound(playerChoice, computer);
+    playerChoiceDiv.textContent = playerChoice.toUpperCase();
+    computerChoiceDiv.textContent = computer.toUpperCase();
+
+    
+    switch (result){
+        case -1: 
+            computerScore++;
+            break;
+        case 0:
+            break;
+        case 1:
+            playerScore++;
+            break;
+    }
+
+    displayScore();
+
+    if (playerScore === 5 || computerScore === 5){
+        if (playerScore === 5){
+            alert("Player 1 Wins!");
+        }
+        else if (computerScore === 5){
+            alert("Computer Wins!");
+        }
+
+        playerScore = 0;
+        computerScore = 0;
+    }
+}
+
+function displayScore(){
+    playerScoreP.textContent = playerScore;
+    computerScoreP.textContent = computerScore;
 }
 
 function game(){
