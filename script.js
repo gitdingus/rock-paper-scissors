@@ -1,5 +1,6 @@
 const playerScoreP = document.querySelector('#player1-score');
 const computerScoreP = document.querySelector('#computer-score');
+const battleStatus = document.querySelector('#battle-status p');
 const playerChoiceDiv = document.querySelector('#battleground .player1');
 const computerChoiceDiv = document.querySelector('#battleground .computer');
 const rockButton = document.querySelector('button.rock');
@@ -31,6 +32,7 @@ function computerPlay(){
 function play(playerChoice){
     let computer = computerPlay();
     let result = playRound(playerChoice, computer);
+    let resultStr = '';
     playerChoiceDiv.textContent = playerChoice.toUpperCase();
     computerChoiceDiv.textContent = computer.toUpperCase();
 
@@ -38,22 +40,26 @@ function play(playerChoice){
     switch (result){
         case -1: 
             computerScore++;
+            resultStr = "loses to";
             break;
         case 0:
+            resultStr = "ties";
             break;
         case 1:
             playerScore++;
+            resultStr = "beats";
             break;
     }
 
+    battleStatus.textContent = `${playerChoice.toUpperCase()} ${resultStr} ${computer.toUpperCase()}`;
     displayScore();
 
     if (playerScore === 5 || computerScore === 5){
         if (playerScore === 5){
-            alert("Player 1 Wins!");
+            battleStatus.textContent = "Player 1 Wins!";
         }
         else if (computerScore === 5){
-            alert("Computer Wins!");
+            battleStatus.textContent = "Computer Wins!";
         }
 
         playerScore = 0;

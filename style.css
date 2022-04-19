@@ -23,6 +23,12 @@ body {
     width: 100%;
     height: 350px;
 }
+#battle-status p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+}
 
 #battleground .play{
     display:flex; 
