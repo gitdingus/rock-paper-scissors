@@ -1,3 +1,17 @@
+const playerScoreP = document.querySelector('#player1-score');
+const computerScoreP = document.querySelector('#computer-score');
+const playerChoiceDiv = document.querySelector('#battleground.player1');
+const computerChoiceDiv = document.querySelector('#battleground.computer');
+const rockButton = document.querySelector('button.rock');
+const paperButton = document.querySelector('button.paper');
+const scissorsButton = document.querySelector('button.scissors');
+
+let playerScore = 0;
+let computerScore = 0;
+
+playerScoreP.textContent = playerScore;
+computerScoreP.textContent = computerScore;
+
 function computerPlay(){
     let rand = Math.floor(Math.random() * 3);
 
